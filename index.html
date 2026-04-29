@@ -1,181 +1,317 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Central de Portais | Agiliza Credi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Portais dos Convênios</title>
 
-<style>
-:root {
-  --azul:#0b4f9c;
-  --laranja:#f58220;
-  --fundo:#fff7ef;
-  --branco:#fff;
-  --texto:#333;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  font-family: Arial, sans-serif;
-  background: var(--fundo);
-  padding:20px;
-  color: var(--texto);
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6fb;
+      color: #1f2937;
+    }
 
-.container{
-  max-width:1000px;
-  margin:auto;
-}
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 35px 20px;
+    }
 
-header{
-  background: var(--azul);
-  color:#fff;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
-}
+    .topo {
+      background: linear-gradient(135deg, #073b8e, #0b1f63);
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+      border-radius: 22px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      margin-bottom: 30px;
+    }
 
-.section{
-  margin-top:30px;
-}
+    .topo h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 800;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
+    .topo p {
+      margin-top: 12px;
+      font-size: 18px;
+      opacity: 0.95;
+    }
 
-.card{
-  background:#fff;
-  padding:18px;
-  border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .pesquisa {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid #d1d5db;
+      font-size: 16px;
+      margin-bottom: 35px;
+      outline: none;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
 
-.card h3{
-  font-size:17px;
-  margin-bottom:10px;
-}
+    .pesquisa:focus {
+      border-color: #0b57d0;
+    }
 
-.btn{
-  border:none;
-  display:inline-block;
-  margin-top:8px;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  color:#fff;
-  font-size:13px;
-  cursor:pointer;
-}
+    .categoria {
+      margin-bottom: 38px;
+    }
 
-.open{
-  background:var(--azul);
-}
+    .categoria h2 {
+      font-size: 28px;
+      margin: 0 0 20px;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.copy{
-  background:var(--laranja);
-}
-</style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px 22px;
+      min-height: 135px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      border: 1px solid #edf0f5;
+    }
+
+    .card h3 {
+      margin: 0 0 22px;
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    .botoes {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      border: none;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .abrir {
+      background: #0757c8;
+    }
+
+    .copiar {
+      background: #df7a36;
+    }
+
+    .rodape {
+      text-align: center;
+      color: #6b7280;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .topo h1 {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topo {
+        padding: 35px 16px;
+      }
+
+      .topo h1 {
+        font-size: 26px;
+      }
+
+      .categoria h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
 
-<div class="container">
+    <header class="topo">
+      <h1>Central de Portais dos Convênios</h1>
+      <p>Clique para acessar ou copiar o link</p>
+    </header>
 
-<header>
-  <h1>Central de Portais dos Convênios</h1>
-  <p>Clique para acessar ou copiar o link</p>
-</header>
+    <input
+      type="text"
+      id="pesquisa"
+      class="pesquisa"
+      placeholder="Pesquisar portal..."
+      onkeyup="filtrarPortais()"
+    />
 
-<div class="section">
-  <h2>🧓 INSS</h2>
+    <section class="categoria">
+      <h2>👴 INSS</h2>
+      <div class="grid">
 
-  <div class="grid">
-    <div class="card">
-      <h3>Meu INSS</h3>
-      <a class="btn open" href="https://meu.inss.gov.br/" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://meu.inss.gov.br/')">Copiar</button>
+        <div class="card" data-nome="Meu INSS INSS">
+          <h3>Meu INSS</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('https://meu.inss.gov.br/')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('https://meu.inss.gov.br/')">Copiar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="categoria">
+      <h2>🏢 Prefeituras</h2>
+      <div class="grid">
+
+        <div class="card" data-nome="Curitiba Prefeitura">
+          <h3>Curitiba</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('https://www2.econsig.com.br/curitiba/servidor/#no-back')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('https://www2.econsig.com.br/curitiba/servidor/#no-back')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="Campo Largo Prefeitura">
+          <h3>Campo Largo</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('https://www.www1.consignet.com.br/auth/login')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('https://www.www1.consignet.com.br/auth/login')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="Joinville Prefeitura">
+          <h3>Joinville</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="Ponta Grossa Prefeitura">
+          <h3>Ponta Grossa</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="São José dos Pinhais Prefeitura">
+          <h3>São José dos Pinhais</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="São Paulo Prefeitura">
+          <h3>São Paulo</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="categoria">
+      <h2>🏛️ Governos</h2>
+      <div class="grid">
+
+        <div class="card" data-nome="Paraná Governo">
+          <h3>Paraná</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="São Paulo Governo">
+          <h3>São Paulo</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="card" data-nome="Santa Catarina Governo">
+          <h3>Santa Catarina</h3>
+          <div class="botoes">
+            <button class="abrir" onclick="abrirLink('#')">Abrir</button>
+            <button class="copiar" onclick="copiarLink('#')">Copiar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="rodape">
+      Agiliza Credi • Central de Links
     </div>
+
   </div>
-</div>
 
-<div class="section">
-  <h2>🏙️ Prefeituras</h2>
+  <script>
+    function abrirLink(link) {
+      if (link === "#") {
+        alert("Link ainda não cadastrado.");
+        return;
+      }
+      window.open(link, "_blank");
+    }
 
-  <div class="grid">
+    function copiarLink(link) {
+      if (link === "#") {
+        alert("Link ainda não cadastrado.");
+        return;
+      }
 
-    <div class="card">
-      <h3>Prefeitura de Curitiba</h3>
-      <a class="btn open" href="https://www2.econsig.com.br/curitiba/servidor/#no-back" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www2.econsig.com.br/curitiba/servidor/#no-back')">Copiar</button>
-    </div>
+      navigator.clipboard.writeText(link).then(function () {
+        alert("Link copiado com sucesso!");
+      });
+    }
 
-    <div class="card">
-      <h3>Prefeitura de Campo Largo</h3>
-      <a class="btn open" href="https://www.www1.consignet.com.br/auth/login" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www.www1.consignet.com.br/auth/login')">Copiar</button>
-    </div>
+    function filtrarPortais() {
+      const texto = document.getElementById("pesquisa").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
 
-    <div class="card">
-      <h3>Prefeitura de Joinville</h3>
-      <a class="btn open" href="https://consignacao.serpro.gov.br" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://consignacao.serpro.gov.br')">Copiar</button>
-    </div>
+      cards.forEach(function(card) {
+        const nome = card.getAttribute("data-nome").toLowerCase();
 
-    <div class="card">
-      <h3>Prefeitura de Ponta Grossa</h3>
-      <a class="btn open" href="https://www.neoconsig.com.br/neoconsig/" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www.neoconsig.com.br/neoconsig/')">Copiar</button>
-    </div>
-
-    <div class="card">
-      <h3>Prefeitura de São José dos Pinhais</h3>
-      <a class="btn open" href="http://servicos.sjp.pr.gov.br/servicos/consigsjp/" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('http://servicos.sjp.pr.gov.br/servicos/consigsjp/')">Copiar</button>
-    </div>
-
-    <div class="card">
-      <h3>Prefeitura de São Paulo</h3>
-      <a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
-    </div>
-
-  </div>
-</div>
-
-<div class="section">
-  <h2>🏛️ Governos</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Governo do Paraná</h3>
-      <a class="btn open" href="https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario')">Copiar</button>
-    </div>
-
-    <div class="card">
-      <h3>Governo de São Paulo</h3>
-      <a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
-    </div>
-
-    <div class="card">
-      <h3>Governo de Santa Catarina</h3>
-      <a class="btn open" href="http://sigrhconsig.sea.sc.gov.br/" target="_blank">Abrir</a>
-      <button class="btn copy" onclick="copiar('http://sigrhconsig.sea.sc.gov.br/')">Copiar</button>
-    </div>
-
-  </div>
-</div>
-
-<script>
-function copiar(link){
-  navigator.clipboard.writeText(link).then(function(){
-    alert("Link copiado!");
-  });
-}
-</script>
-
+        if (nome.includes(texto)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
