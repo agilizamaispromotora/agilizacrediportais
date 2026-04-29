@@ -15,9 +15,10 @@
 }
 
 body{
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: var(--fundo);
   padding:20px;
+  color: var(--texto);
 }
 
 .container{
@@ -33,10 +34,6 @@ header{
   text-align:center;
 }
 
-h1{
-  margin-bottom:10px;
-}
-
 .section{
   margin-top:30px;
 }
@@ -49,25 +46,26 @@ h1{
 
 .card{
   background:#fff;
-  padding:15px;
+  padding:18px;
   border-radius:15px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card h3{
-  font-size:16px;
+  font-size:17px;
   margin-bottom:10px;
 }
 
 .btn{
+  border:none;
   display:inline-block;
   margin-top:8px;
-  padding:10px;
+  padding:10px 14px;
   border-radius:10px;
   text-decoration:none;
   color:#fff;
   font-size:13px;
-  text-align:center;
+  cursor:pointer;
 }
 
 .open{
@@ -77,9 +75,7 @@ h1{
 .copy{
   background:var(--laranja);
 }
-
 </style>
-
 </head>
 
 <body>
@@ -87,100 +83,97 @@ h1{
 <div class="container">
 
 <header>
-<h1>Central de Portais dos Convênios</h1>
-<p>Clique para acessar ou copiar o link</p>
+  <h1>Central de Portais dos Convênios</h1>
+  <p>Clique para acessar ou copiar o link</p>
 </header>
 
 <div class="section">
-<h2>🏙️ Prefeituras</h2>
+  <h2>🧓 INSS</h2>
 
-<div class="grid">
-
-<div class="card">
-<h3>Curitiba</h3>
-<a class="btn open" href="https://www2.econsig.com.br/curitiba/servidor/#no-back" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www2.econsig.com.br/curitiba/servidor/#no-back')">Copiar</button>
-</div>
-
-<div class="card">
-<h3>Campo Largo</h3>
-<a class="btn open" href="https://www.www1.consignet.com.br/auth/login" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www.www1.consignet.com.br/auth/login')">Copiar</button>
-</div>
-
-<div class="card">
-<h3>Joinville</h3>
-<a class="btn open" href="https://consignacao.serpro.gov.br" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://consignacao.serpro.gov.br')">Copiar</button>
-</div>
-
-<div class="card">
-<h3>Ponta Grossa</h3>
-<a class="btn open" href="https://www.neoconsig.com.br/neoconsig/" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www.neoconsig.com.br/neoconsig/')">Copiar</button>
-</div>
-
-<div class="card">
-<h3>São José dos Pinhais</h3>
-<a class="btn open" href="http://servicos.sjp.pr.gov.br/servicos/consigsjp/" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('http://servicos.sjp.pr.gov.br/servicos/consigsjp/')">Copiar</button>
-</div>
-
-<div class="card">
-<h3>São Paulo</h3>
-<a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
-</div>
-
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Meu INSS</h3>
+      <a class="btn open" href="https://meu.inss.gov.br/" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://meu.inss.gov.br/')">Copiar</button>
+    </div>
+  </div>
 </div>
 
 <div class="section">
-<h2>🏛️ Governos</h2>
+  <h2>🏙️ Prefeituras</h2>
 
-<div class="grid">
+  <div class="grid">
 
-<div class="card">
-<h3>Paraná</h3>
-<a class="btn open" href="https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario')">Copiar</button>
-</div>
+    <div class="card">
+      <h3>Prefeitura de Curitiba</h3>
+      <a class="btn open" href="https://www2.econsig.com.br/curitiba/servidor/#no-back" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www2.econsig.com.br/curitiba/servidor/#no-back')">Copiar</button>
+    </div>
 
-<div class="card">
-<h3>São Paulo</h3>
-<a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
-</div>
+    <div class="card">
+      <h3>Prefeitura de Campo Largo</h3>
+      <a class="btn open" href="https://www.www1.consignet.com.br/auth/login" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www.www1.consignet.com.br/auth/login')">Copiar</button>
+    </div>
 
-<div class="card">
-<h3>Santa Catarina</h3>
-<a class="btn open" href="http://sigrhconsig.sea.sc.gov.br/" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('http://sigrhconsig.sea.sc.gov.br/')">Copiar</button>
-</div>
+    <div class="card">
+      <h3>Prefeitura de Joinville</h3>
+      <a class="btn open" href="https://consignacao.serpro.gov.br" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://consignacao.serpro.gov.br')">Copiar</button>
+    </div>
 
-</div>
+    <div class="card">
+      <h3>Prefeitura de Ponta Grossa</h3>
+      <a class="btn open" href="https://www.neoconsig.com.br/neoconsig/" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www.neoconsig.com.br/neoconsig/')">Copiar</button>
+    </div>
+
+    <div class="card">
+      <h3>Prefeitura de São José dos Pinhais</h3>
+      <a class="btn open" href="http://servicos.sjp.pr.gov.br/servicos/consigsjp/" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('http://servicos.sjp.pr.gov.br/servicos/consigsjp/')">Copiar</button>
+    </div>
+
+    <div class="card">
+      <h3>Prefeitura de São Paulo</h3>
+      <a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
+    </div>
+
+  </div>
 </div>
 
 <div class="section">
-<h2>🧓 INSS</h2>
+  <h2>🏛️ Governos</h2>
 
-<div class="grid">
+  <div class="grid">
 
-<div class="card">
-<h3>Meu INSS</h3>
-<a class="btn open" href="https://meu.inss.gov.br/" target="_blank">Abrir</a>
-<button class="btn copy" onclick="copiar('https://meu.inss.gov.br/')">Copiar</button>
-</div>
+    <div class="card">
+      <h3>Governo do Paraná</h3>
+      <a class="btn open" href="https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www.paranaconsig.pr.gov.br/pr/v3/autenticarUsuario')">Copiar</button>
+    </div>
 
-</div>
-</div>
+    <div class="card">
+      <h3>Governo de São Paulo</h3>
+      <a class="btn open" href="https://www.portaldoconsignado.org.br" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('https://www.portaldoconsignado.org.br')">Copiar</button>
+    </div>
 
+    <div class="card">
+      <h3>Governo de Santa Catarina</h3>
+      <a class="btn open" href="http://sigrhconsig.sea.sc.gov.br/" target="_blank">Abrir</a>
+      <button class="btn copy" onclick="copiar('http://sigrhconsig.sea.sc.gov.br/')">Copiar</button>
+    </div>
+
+  </div>
 </div>
 
 <script>
 function copiar(link){
-navigator.clipboard.writeText(link);
-alert("Link copiado!");
+  navigator.clipboard.writeText(link).then(function(){
+    alert("Link copiado!");
+  });
 }
 </script>
 
